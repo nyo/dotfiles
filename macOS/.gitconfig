@@ -1,7 +1,7 @@
 [user]
-		email = nyo@users.noreply.github.com
-		name = nyo
+	email = nyo@users.noreply.github.com
+	name = nyo
 [color]
-		ui = auto
+	ui = auto
 [github]
-		user = nyo
+	user = nyo

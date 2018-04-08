@@ -1,7 +1,3 @@
-#
-# ~/.gitconfig
-#
-
 [user]
 	email = nyo@users.noreply.github.com
 	name = nyo
@@ -9,4 +5,3 @@
 	ui = auto
 [github]
 	user = nyo
-	token = token

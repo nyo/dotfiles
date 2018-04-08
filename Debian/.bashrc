@@ -1,56 +1,41 @@
-#
-# ~/.bashrc
-#
-
-# if not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
 # enable xterm support for 256 colors if disabled
 if [ "$TERM" = xterm ]; then
 	TERM=xterm-256color;
 fi
 
-#	PRINTS "WELCOME" MESSAGES
+#	PRINT "WELCOME" MESSAGE
 echo ""
 echo "	▄▄▄·  ▐ ▄  ▄· ▄▌                         "
 echo "	▐█ ▀█ •█▌▐█▐█▪██▌▪              \    /\  "
 echo "	▄█▀▀█ ▐█▐▐▌▐█▌▐█▪ ▄█▀▄           )  ( ') "
 echo "	▐█ ▪▐▌██▐█▌ ▐█▀·.▐█▌.▐▌         (  /  )  "
-echo "	 ▀  ▀ ▀▀ █▪  ▀ •  ▀█▄▀▪ @ debian \(__)|  "
+echo "	 ▀  ▀ ▀▀ █▪  ▀ •  ▀█▄▀▪ @ Debian \(__)|  "
 echo ""
 # fonts from patorjk.com/software/taag/
-# doom, isometric3, small isometric1, delta corps priest 1, elite, colossal
-
-#	PROMPT BEHAVIOR
-export PS1='[\u@\h \W]\$ '
+# eg. doom, isometric3, small isometric1, delta corps priest 1, elite, colossal
 
 #	SET ALIASES
+alias vi='vim'
 alias ls='ls -1 --color=always'
-alias upd="sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade"
+alias upd='sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade'
+alias diff='colordiff -y'
 alias grep='grep --color=always'
 
-#	SET AND/OR ADD ENVIRONMENT VARIABLE
-export EDITOR=vim # set `vim` as the default text editor
+#	SET ENVIRONMENT ENTRIES
+export PS1='[\u@\h \W]\$ '
+export LESS='--RAW-CONTROL-CHARS' # get color support for `less`
+export EDITOR='vim'
+export LS_COLORS='di=32:ln=35:so=34:pi=33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43' # see: geoff.greer.fm/lscolors/
+export GREP_COLOR='1;41'
+export HISTCONTROL='ignoreboth' # don't put duplicate lines/lines starting with space in the history
+export HISTSIZE='1000' # set history lenght
+export HISTFILESIZE='2000' # set history file lenght
 
-export LESS="--RAW-CONTROL-CHARS" # get color support for `less`
-export LS_COLORS='di=32:ln=35:so=34:pi=33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43' # change default color for `ls` (geoff.greer.fm/lscolors/)
-export GREP_COLOR='1;41' # change default color for `grep`
+#	SET SHELL OPTIONAL BEHAVIOR
+shopt -s histappend # append to the history file, don't overwrite it
+shopt -s checkwinsize # check the window size after each command & update the values of LINES and COLUMNS.
 
-# don't put duplicate lines or lines starting with space in the history
-export HISTCONTROL=ignoreboth
-# append to the history file, don't overwrite it
-shopt -s histappend
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
-# colors for `man` pages
+#	ENABLE COLORS FOR `man` PAGES
 function _colorman() {
   env \
     LESS_TERMCAP_mb=$(printf "\e[1;35m") \
