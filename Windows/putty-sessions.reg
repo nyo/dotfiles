@@ -115,7 +115,7 @@ Windows Registry Editor Version 5.00
 "TermWidth"=dword:00000050
 "TermHeight"=dword:00000018
 "Font"="Consolas"
-"FontIsBold"=dword:00000001
+"FontIsBold"=dword:00000000
 "FontCharSet"=dword:00000000
 "FontHeight"=dword:0000000d
 "FontQuality"=dword:00000000
