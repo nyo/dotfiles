@@ -111,7 +111,7 @@ Windows Registry Editor Version 5.00
 "DisableArabicShaping"=dword:00000000
 "DisableBidi"=dword:00000000
 "WinNameAlways"=dword:00000001
-"WinTitle"=""
+"WinTitle"="NAME"
 "TermWidth"=dword:00000050
 "TermHeight"=dword:00000018
 "Font"="Consolas"
