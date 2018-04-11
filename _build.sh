@@ -124,10 +124,13 @@ curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/.bashrc" > /h
 curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/.gitconfig" > /home/anyo/.gitconfig
 curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/.vimrc" > /home/anyo/.vimrc
 echo -n $C_GREEN; echo "Successfuly imported '.bashrc', '.vimrc' & '.gitconfig' to /home/$USER"
+curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/auto_update.sh" > /home/anyo/auto_update.sh
+(crontab -l ; echo "0 4 * * 1 /bin/sh /home/anyo/auto_update.sh >/dev/null 2>&1") | crontab -
+echo -n $C_GREEN; echo "Auto-update script will now be executed once a week."
 echo -n $C_RESET; echo "< ----- >"; sleep $WAIT
 
 # Reboot
-echo -n $C_YELLOW; echo "Done. Restarting, cya!"
+echo -n $C_YELLOW; echo "Destructing: $0..."
 rm -f $0
-echo -n $C_YELLOW; echo "Destructed $0"; sleep $WAIT
+echo -n $C_YELLOW; echo "Done. Restarting, cya!"; sleep $WAIT
 reboot
