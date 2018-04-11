@@ -30,7 +30,7 @@ export GREP_COLOR='1;41'
 export HISTCONTROL='ignoreboth' # don't put duplicate lines/lines starting with space in the history
 export HISTSIZE='1000' # set history lenght
 export HISTFILESIZE='2000' # set history file lenght
-export HISTTIMEFORMAT="%Y%m%d %T  " # display timestamp in history
+export HISTTIMEFORMAT="%d/%m/%Y %T  " # display timestamp in history
 
 #	SET SHELL OPTIONAL BEHAVIOR
 shopt -s histappend # append to the history file, don't overwrite it
