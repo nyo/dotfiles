@@ -49,6 +49,8 @@ sudo apt-get -y install whois
 sudo apt-get -y install dnsutils
 sudo apt-get -y install tcpdump
 sudo apt-get -y install iftop
+sudo apt-get -y install psmisc
+sudo apt-get -y install tor
 sudo apt-get -y remove python-pip
 curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
 python ~/get-pip.py
