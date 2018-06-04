@@ -51,10 +51,9 @@ sudo apt-get -y install tcpdump
 sudo apt-get -y install iftop
 sudo apt-get -y install psmisc
 sudo apt-get -y install tor
-sudo apt-get -y remove python-pip
-curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
-python ~/get-pip.py
-rm -f ~/get-pip.py
+sudo apt-get -y install nodejs
+sudo apt-get -y install python-pip
+sudo apt-get -y install python3-pip
 echo -n $C_GREEN; echo "Done updating sources, installing & upgrading given packages."
 echo -n $C_RESET; echo "< ----- >"; sleep $WAIT
 
