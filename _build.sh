@@ -53,7 +53,10 @@ sudo apt-get -y install psmisc
 sudo apt-get -y install tor
 sudo apt-get -y install nodejs
 sudo apt-get -y install python-pip
+sudo apt-get -y install python-dev
 sudo apt-get -y install python3-pip
+sudo apt-get -y install python3-dev
+sudo apt-get -y install gcc
 echo -n $C_GREEN; echo "Done updating sources, installing & upgrading given packages."
 echo -n $C_RESET; echo "< ----- >"; sleep $WAIT
 
