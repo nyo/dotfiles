@@ -22,7 +22,8 @@ alias diff='colordiff -y'
 alias grep='grep --color=always'
 
 #	SET ENVIRONMENT ENTRIES
-export PS1='[\u@\h \W]\$ '
+export PS1='\[\033[31m\](\[\033[31;1m\]$0 \W\[\033[0m\]\[\033[31m\])\[\033[0m\]\[\033[1m\]\$ \[\033[0m\]'
+#export PS1='[\u@\h \W]\$ '
 export LESS='--RAW-CONTROL-CHARS' # get color support for `less`
 export EDITOR='vim'
 export LS_COLORS='di=32:ln=35:so=34:pi=33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43' # see: geoff.greer.fm/lscolors/
