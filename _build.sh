@@ -128,6 +128,7 @@ echo -n $C_GREEN; echo "Successfully imported vim .files to /home/$USER/"
 curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/.bashrc" > "/home/$USER/.bashrc"
 curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/.gitconfig" > "/home/$USER/.gitconfig"
 curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/.nanorc" > "/home/$USER/.nanorc"
+curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/.banner" > "/home/$USER/.banner"
 echo -n $C_GREEN; echo "Successfully imported bash/git/nano .files to /home/$USER/"
 echo -n $C_RESET; curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/auto_update.sh" > /home/$USER/auto_update.sh
 (crontab -l ; echo "0 4 * * 1 /bin/sh /home/$USER/auto_update.sh >/dev/null 2>&1") | crontab -
