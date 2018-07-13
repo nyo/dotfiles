@@ -1,0 +1,26 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# todo:
+# + customize banner with more data (ip/date/OS/etc)
+# (eg. replace number of space etc (len(variable))...)
+
+# fonts from patorjk.com/software/taag/
+# eg. doom, isometric3, small isometric1, delta corps priest 1, elite, colossal
+
+print ""
+print "\033[38;5;251m	▄▄▄·  ▐ ▄  ▄· ▄▌                         \033[0m"
+print "\033[38;5;253m	▐█ ▀█ •█▌▐█▐█▪██▌▪              \    /\  \033[0m"
+print "\033[38;5;255m	▄█▀▀█ ▐█▐▐▌▐█▌▐█▪ ▄█▀▄           )  ( ') \033[0m"
+print "\033[38;5;253m	▐█ ▪▐▌██▐█▌ ▐█▀·.▐█▌.▐▌         (  /  )  \033[0m"
+print "\033[38;5;251m	 ▀  ▀ ▀▀ █▪  ▀ •  ▀█▄▀▪ * debian \(__)|  \033[0m"
+print ""
+
+#print ""
+#print "\033[38;5;161m	▄▄▄·  ▐ ▄  ▄· ▄▌                         \033[0m"
+#print "\033[38;5;162m	▐█ ▀█ •█▌▐█▐█▪██▌▪              \    /\  \033[0m"
+#print "\033[38;5;163m	▄█▀▀█ ▐█▐▐▌▐█▌▐█▪ ▄█▀▄           )  ( ') \033[0m"
+#print "\033[38;5;162m	▐█ ▪▐▌██▐█▌ ▐█▀·.▐█▌.▐▌         (  /  )  \033[0m"
+#print "\033[38;5;161m	 ▀  ▀ ▀▀ █▪  ▀ •  ▀█▄▀▪ @ Debian \(__)|  \033[0m"
+#print ""
+

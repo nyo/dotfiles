@@ -1,14 +1,10 @@
 # --- if not running interactively, don't do anyting (for scp) --- #
 [[ $- != *i* ]] && return
 
-# --- display welcome message + notify --- #
-
-/usr/bin/python ~/.banner
-echo "FROM `w --no-header | awk -F' ' '{printf "%s@%s\n", $1, $3}'` AT `date`" | mail -s "[`hostname`] new access!" contact@anyo.me
-
 # --- set aliases --- #
 
 alias vi="vim"
+alias open="xdg-open"
 alias ls="ls -1 --color=always"
 alias grep="grep --color=always"
 alias upd="sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade"
@@ -22,7 +18,7 @@ alias path="_path"
 
 # export PS1="[\u@\h \w]\$ "
 # export PS1="[$0 \w]\$ "
-export PS1="\[\033[38;5;231m\][\[\033[0m\]\[\033[38;5;250m\]$0 \w\[\033[0m\]]\[\033[38;5;231m\]\[\033[0m\]\[\033[38;5;141m\]\$ \[\033[0m\]"
+export PS1="\[\033[38;5;231m\][\[\033[0m\]\[\033[38;5;250m\]\u@\h \w\[\033[0m\]]\[\033[38;5;231m\]\[\033[0m\]\[\033[38;5;141m\]\$ \[\033[0m\]"
 
 # --- environment entries --- #
 
@@ -36,7 +32,7 @@ export LESS="--RAW-CONTROL-CHARS" # get color support for `less`
 export LS_COLORS="di=32:ln=35:so=34:pi=33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43" # geoff.greer.fm/lscolors/
 export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
 export GREP_COLOR="1;41"
-export PATH="$PATH:/usr/bin/firefox"
+export MULLVAD_USE_GTK3="yes" # mullvad client support
 
 # --- shell optional behavior --- #
 
