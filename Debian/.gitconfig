@@ -6,4 +6,4 @@
 [github]
 	user = nyo
 [credential]
-	helper = cache
+	helper = cache --timeout=3600
