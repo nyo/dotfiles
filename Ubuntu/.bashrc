@@ -32,6 +32,8 @@ export LESS="--RAW-CONTROL-CHARS" # get color support for `less`
 export LS_COLORS="di=32:ln=35:so=34:pi=33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43" # geoff.greer.fm/lscolors/
 export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
 export GREP_COLOR="1;41"
+export LANG="en_US.utf-8"
+export LANGUAGE="en:fr"
 export MULLVAD_USE_GTK3="yes" # mullvad client support
 
 # --- shell optional behavior --- #

@@ -37,6 +37,8 @@ export LS_COLORS="di=32:ln=35:so=34:pi=33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=
 export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
 export GREP_COLOR="1;41"
 export PATH="$PATH:/usr/bin/firefox"
+export LANG="en_US.utf-8"
+export LANGUAGE="en:fr"
 
 # --- shell optional behavior --- #
 
