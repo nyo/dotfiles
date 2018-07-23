@@ -39,7 +39,8 @@ sudo apt-get -y install cron
 sudo apt-get -y install screen
 sudo apt-get -y install curl wget
 sudo apt-get -y install git
-sudo apt-get -y install fail2ban ufw iptables
+sudo apt-get -y install iptables
+# sudo apt-get -y install fail2ban ufw
 sudo apt-get -y install htop iftop tree psmisc
 sudo apt-get -y install whois dnsutils tcpdump
 sudo apt-get -y install tor
@@ -47,6 +48,9 @@ sudo apt-get -y install python-pip python3-pip python-dev python3-dev
 sudo apt-get -y install build-essential gcc g++ make
 sudo apt-get -y install source-highlight
 sudo apt-get -y install zip unzip
+sudo apt-get -y install mailutils
+sudo apt-get -y autoremove
+sudo apt-get -y autoclean
 curl -sL "https://deb.nodesource.com/setup_10.x" | sudo -E bash -
 sudo apt-get -y install nodejs
 echo -n $C_GREEN; echo "Done updating sources, installing & upgrading given packages."
@@ -78,35 +82,35 @@ echo -n $C_RESET; echo "+ --------- +"; sleep $WAIT
 
 # Change root default password
 echo "root:$PASS_ROOT" | sudo chpasswd
-echo -n $C_GREEN; echo "Changed default root password to \"$PASS_ROOT\""
+echo -n $C_GREEN; echo "Changed default root password"
 echo -n $C_RESET; echo "+ --------- +"; sleep $WAIT
 
 # Set fail2ban up
-cp /etc/fail2ban/fail2ban.conf /etc/fail2ban/fail2ban.local	
-cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
-echo -n $C_GREEN; echo "Copied fail2ban .conf files to .local rules."
-echo -n $C_RESET; sudo service fail2ban stop
-echo -n $C_RESET; echo "+ --------- +"; sleep $WAIT
+#cp /etc/fail2ban/fail2ban.conf /etc/fail2ban/fail2ban.local	
+#cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+#echo -n $C_GREEN; echo "Copied fail2ban .conf files to .local rules."
+#echo -n $C_RESET; sudo service fail2ban stop
+#echo -n $C_RESET; echo "+ --------- +"; sleep $WAIT
 
 # Set firewall (ufw) up
-sudo systemctl enable ufw
-sudo systemctl restart ufw
-echo -n $C_GREEN
-echo -n "[+] "; sudo ufw logging on
-echo -n "[+] "; sudo ufw default deny incoming
-echo -n "[+] "; sudo ufw default allow outgoing
-echo -n "[+] "; sudo ufw allow $PORT/tcp
-echo "[>] Successfully set firewall rules, details:"
-echo -n $C_RESET; yes | sudo ufw enable
-echo -n $C_RESET; echo -n $C_BOLD; sudo ufw status verbose; sleep $WAIT
-echo -n $C_RESET; sudo service fail2ban start
-echo -n $C_RESET; echo "+ --------- +"; sleep $WAIT
+#sudo systemctl enable ufw
+#sudo systemctl restart ufw
+#echo -n $C_GREEN
+#echo -n "[+] "; sudo ufw logging on
+#echo -n "[+] "; sudo ufw default deny incoming
+#echo -n "[+] "; sudo ufw default allow outgoing
+#echo -n "[+] "; sudo ufw allow $PORT/tcp
+#echo "[>] Successfully set firewall rules, details:"
+#echo -n $C_RESET; yes | sudo ufw enable
+#echo -n $C_RESET; echo -n $C_BOLD; sudo ufw status verbose; sleep $WAIT
+#echo -n $C_RESET; sudo service fail2ban start
+#echo -n $C_RESET; echo "+ --------- +"; sleep $WAIT
 
 # Add non-root user
 sudo adduser $USER --gecos ",,," --disabled-password
 echo -n $C_GREEN; echo "Created new user $USER."
 echo -n $C_RESET; echo "$USER:$PASS_USER" | sudo chpasswd
-echo -n $C_GREEN; echo "Changed $USER's password to $PASS_USER."
+echo -n $C_GREEN; echo "Set $USER's password."
 echo -n $C_RESET; echo -n $C_BOLD; sudo adduser $USER sudo
 echo -n $C_RESET; echo -n $C_GREEN; echo "Added $USER to sudoers."
 sed -i "s/PermitRootLogin yes/PermitRootLogin no/g" /etc/ssh/sshd_config
@@ -137,7 +141,7 @@ echo -n $C_GREEN; echo "Auto-update script will now be executed once a week."
 echo -n $C_RESET; echo "+ --------- +"; sleep $WAIT
 
 # Reboot
-echo -n $C_YELLOW; echo "Destructing: $0..."
-rm -f $0
+echo -n $C_YELLOW; echo "Auto-destructing some files..."
+rm -f /root/.bash_history /root/.wget-hsts $0
 echo -n $C_YELLOW; echo "Done. Restarting, cya!"; sleep $WAIT
 reboot
