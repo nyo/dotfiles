@@ -135,9 +135,9 @@ curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/.gitconfig" >
 curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/.nanorc" > "/home/$USER/.nanorc"
 curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/.banner" > "/home/$USER/.banner"
 echo -n $C_GREEN; echo "Successfully imported bash/git/nano .files to /home/$USER/"
-echo -n $C_RESET; curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/auto_update.sh" > /home/$USER/auto_update.sh
-(crontab -l ; echo "0 4 * * 1 /bin/sh /home/$USER/auto_update.sh >/dev/null 2>&1") | crontab -
-echo -n $C_GREEN; echo "Auto-update script will now be executed once a week."
+echo -n $C_RESET; curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/update.sh" > /root/update.sh
+(crontab -l ; echo "0 4 * * 1 /bin/sh /root/update.sh >/dev/null 2>&1") | crontab -
+echo -n $C_GREEN; echo "Auto-update script will now be executed once a week as su."
 echo -n $C_RESET; echo "+ --------- +"; sleep $WAIT
 
 # Reboot
