@@ -70,5 +70,5 @@ function _monip() {
 }
 
 function _path() {
-	echo "$(pwd)/$1"
+	if [[ ${1:0:1} == "/" ]]; then echo "$1"; else echo "$(pwd)/$1"; fi
 }
