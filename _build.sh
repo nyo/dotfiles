@@ -9,7 +9,7 @@ C_RED="\033[31m"
 
 trap '{ echo "$C_RESET\nKeyboard Interrupt detected."; sleep 0.5; exit 1; }' INT
 
-[ $# -eq 0 ] && { echo "Usage: $0 <SSH_port> <root_pass> <user_pass> <user_name>"; exit 1; }
+[ $# -ne 4 ] && { echo "Usage: $0 <SSH_port> <root_pass> <user_pass> <user_name>"; exit 1; }
 
 PORT=$1 # argv[1]
 PASS_ROOT=$2 # argv[2]
@@ -63,7 +63,7 @@ echo -n $C_GREEN; echo "File /etc/motd has been wiped out."
 echo -n $C_RESET; echo "+ --------- +"; sleep $WAIT
 
 # Change DNS servers to https://1.1.1.1/
-echo "domain openstacklocal\nsearch openstacklocal\nnameserver 1.1.1.1\nnameserver 1.0.0.1" > /etc/resolv.conf 2>/dev/null
+echo "domain openstacklocal\nsearch openstacklocal\nnameserver 1.1.1.1\nnameserver 1.0.0.1\nnameserver 8.8.8.8\nnameserver 8.8.4.4" > /etc/resolv.conf 2>/dev/null
 sudo chattr +i /etc/resolv.conf
 /etc/init.d/networking restart
 if nslookup google.com | grep '1.1.1.1' 1>/dev/null;
@@ -107,7 +107,7 @@ echo -n $C_RESET; echo "+ --------- +"; sleep $WAIT
 #echo -n $C_RESET; echo "+ --------- +"; sleep $WAIT
 
 # Add non-root user
-sudo adduser $USER --gecos ",,," --disabled-password
+sudo adduser $USER --gecos ",,," --disabled-password --force-badname
 echo -n $C_GREEN; echo "Created new user $USER."
 echo -n $C_RESET; echo "$USER:$PASS_USER" | sudo chpasswd
 echo -n $C_GREEN; echo "Set $USER's password."
