@@ -47,6 +47,10 @@ shopt -s checkwinsize # check & resize LINES and COLUMNS after each command if n
 
 # --- more color support & custom functions --- #
 
+if [ -x /usr/bin/dircolors ]; then
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
 function _colorman() {
 	env 									\
 	LESS_TERMCAP_mb=$(printf "\e[1;35m")	\
