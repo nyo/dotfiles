@@ -1,0 +1,51 @@
+# programming related extensions #
+.sh			38;5;42
+.c			38;5;35
+.h			38;5;246
+.py			38;5;67
+.js			38;5;74
+.php		38;5;96
+.pl			38;5;167
+.html		38;5;174
+.htm		38;5;174
+.xhtml		38;5;174
+.css		38;5;173
+.conf		38;5;80
+# other file extensions #
+.txt		38;5;139
+.pdf		38;5;132
+# data file extensions #
+.csv		38;5;230
+.log		38;5;230
+.sql		38;5;230
+.tar		38;5;230
+.xml		38;5;230
+# compressed file extensions #
+.7z			3
+.z			3
+.zip		3
+.rar		3
+.tar.bz2	3
+.tar.gz		3
+.tgz		3
+.tbz2		3
+.arj		3
+.deb		3
+.pkg		3
+.rpm		3
+# audio file extensions #
+.mp3		38;5;177
+.wav		38;5;171
+.flac		38;5;169
+.ogg		38;5;175
+# image file extensions #
+.png		38;5;24
+.jpg		38;5;24 
+.jpeg		38;5;24
+.gif		38;5;24
+.bmp		38;5;24
+.ico		38;5;24
+# video file extensions #
+.avi		38;5;62
+.mov		38;5;62
+.mp4		38;5;62
