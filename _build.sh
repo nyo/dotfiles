@@ -120,21 +120,26 @@ echo -n $C_RESET; /etc/init.d/ssh restart
 echo -n $C_RESET; echo "+ --------- +"; sleep $WAIT
 
 # Add dotfiles to non-root user's home
-curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/.vimrc" > "/home/$USER/.vimrc"
-mkdir -p "/home/$USER/.vim"
-mkdir -p "/home/$USER/.vim/autoload"
-curl "https://raw.githubusercontent.com/drewtempelmeyer/palenight.vim/master/autoload/palenight.vim" > "/home/$USER/.vim/autoload/palenight.vim"
-mkdir -p "/home/$USER/.vim/colors"
-curl "https://raw.githubusercontent.com/drewtempelmeyer/palenight.vim/master/colors/palenight.vim" > "/home/$USER/.vim/colors/palenight.vim"
-mkdir -p "/home/$USER/.vim/bundle"
-git clone "https://github.com/pangloss/vim-javascript.git" "/home/$USER/.vim/bundle/vim-javascript"
-echo -n $C_GREEN; echo "Successfully imported vim .files to /home/$USER/"
+# all .*rc
 curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/.bashrc" > "/home/$USER/.bashrc"
 curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/.bash_profile" > "/home/$USER/.bash_profile"
 curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/.gitconfig" > "/home/$USER/.gitconfig"
 curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/.nanorc" > "/home/$USER/.nanorc"
 curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/.banner" > "/home/$USER/.banner"
 echo -n $C_GREEN; echo "Successfully imported bash/git/nano .files to /home/$USER/"
+# vim stuff
+curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/.vimrc" > "/home/$USER/.vimrc"
+mkdir -p "/home/$USER/.vim"
+mkdir -p "/home/$USER/.vim/autoload"
+mkdir -p "/home/$USER/.vim/colors"
+mkdir -p "/home/$USER/.vim/bundle"
+curl -LSso "/home/$USER/.vim/autoload/pathogen.vim" "https://tpo.pe/pathogen.vim"
+curl "https://raw.githubusercontent.com/drewtempelmeyer/palenight.vim/master/autoload/palenight.vim" > "/home/$USER/.vim/autoload/palenight.vim"
+curl "https://raw.githubusercontent.com/drewtempelmeyer/palenight.vim/master/colors/palenight.vim" > "/home/$USER/.vim/colors/palenight.vim"
+curl "https://raw.githubusercontent.com/YorickPeterse/happy_hacking.vim/master/colors/happy_hacking.vim" > "/home/$USER/.vim/colors/happy_hacking.vim"
+git clone "https://github.com/pangloss/vim-javascript.git" "/home/$USER/.vim/bundle/vim-javascript"
+git clone "https://github.com/mxw/vim-jsx.git" "/home/$USER/.vim/bundle/vim-jsx"
+echo -n $C_GREEN; echo "Successfully imported vim .files to /home/$USER/"
 echo -n $C_RESET; curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/update.sh" > /root/update.sh
 (crontab -l ; echo "0 4 * * 1 /bin/sh /root/update.sh >/dev/null 2>&1") | crontab -
 echo -n $C_GREEN; echo "Auto-update script will now be executed once a week as su."
