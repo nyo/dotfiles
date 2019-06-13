@@ -129,6 +129,8 @@ curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/.banner" > "/
 echo -n $C_GREEN; echo "Successfully imported bash/git/nano .files to /home/$USER/"
 # vim stuff
 curl "https://raw.githubusercontent.com/nyo/dotfiles/master/Debian/.vimrc" > "/home/$USER/.vimrc"
+# curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# wget https://raw.githubusercontent.com/kristijanhusak/vim-hybrid-material/master/colors/hybrid_material.vim
 mkdir -p "/home/$USER/.vim"
 mkdir -p "/home/$USER/.vim/autoload"
 mkdir -p "/home/$USER/.vim/colors"

@@ -7,9 +7,16 @@ endif
 " enable syntax highlighting
 syntax enable
 " set colorscheme
-colorscheme palenight
+set background=dark
+"colorscheme palenight
+colorscheme hybrid_material
 " use javascript.vim for .js file
-set runtimepath^=~/.vim/bundle/vim-javascript
+"set runtimepath^=~/.vim/bundle/vim-javascript
+" plugins
+call plug#begin()
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+call plug#end()
 " enabled line numbers
 set number
 " enable mouse in vim
