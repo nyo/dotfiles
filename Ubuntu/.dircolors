@@ -15,11 +15,14 @@
 .txt		38;5;139
 .pdf		38;5;132
 # data file extensions #
+.json       38;5;230
 .csv		38;5;230
 .log		38;5;230
 .sql		38;5;230
 .tar		38;5;230
 .xml		38;5;230
+.yml		38;5;230
+.yaml		38;5;230
 # compressed file extensions #
 .7z			3
 .z			3
