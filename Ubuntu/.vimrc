@@ -8,10 +8,7 @@ endif
 syntax enable
 " set colorscheme
 set background=dark
-"colorscheme palenight
 colorscheme hybrid_material
-" use javascript.vim for .js file
-"set runtimepath^=~/.vim/bundle/vim-javascript
 " plugins
 call plug#begin()
 Plug 'pangloss/vim-javascript'
