@@ -7,34 +7,35 @@ alias vi="vim"
 alias open="xdg-open"
 alias ls="ls -1 --color=always"
 alias grep="grep --color=always"
-alias upd="sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade"
+alias upd="sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade && sudo apt-get autoclean"
 alias diff="colordiff -y"
 alias cat="tabs 4; cat"
 alias man="_colorman man"
 alias monip="_monip"
-alias path="_path"
+alias geoip="_geoip"
+alias path="realpath"
+alias le="ls -1AX"
 
 # --- prompt(s) --- #
 
 # export PS1="[\u@\h \w]\$ "
 # export PS1="[$0 \w]\$ "
-export PS1="\[\033[38;5;231m\][\[\033[0m\]\[\033[38;5;250m\]\u@\h \w\[\033[0m\]]\[\033[38;5;231m\]\[\033[0m\]\[\033[38;5;141m\]\$ \[\033[0m\]"
+export PS1="\[\033[38;5;231m\](\[\033[0m\]\[\033[38;5;231m\]\u@\h \w\[\033[0m\]\[\033[38;5;231m\])\[\033[0m\]\[\033[38;5;141m\]\$ \[\033[0m\]"
 
 # --- environment entries --- #
 
 export TERM="xterm-256color";
 export EDITOR="vim"
 export HISTCONTROL="ignoreboth" # don't put duplicate lines & those starting with space in the history
-export HISTSIZE="10000"
-export HISTFILESIZE="20000"
+export HISTSIZE="100000"
+export HISTFILESIZE="100000"
 export HISTTIMEFORMAT="%d/%m/%Y %T  " # display timestamp in history
 export LESS="--RAW-CONTROL-CHARS" # get color support for `less`
-export LS_COLORS="di=32:ln=35:so=34:pi=33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43" # geoff.greer.fm/lscolors/
+export LS_COLORS="di=32:ln=35:so=34:pi=33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43:sh=38;5;41" # geoff.greer.fm/lscolors/
 export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
 export GREP_COLOR="1;41"
-export LANG="en_US.utf-8"
-export LANGUAGE="en:fr"
 export MULLVAD_USE_GTK3="yes" # mullvad client support
+#export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
 
 # --- shell optional behavior --- #
 
@@ -48,7 +49,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 function _colorman() {
-	env 									\
+	env									\
 	LESS_TERMCAP_mb=$(printf "\e[1;35m")	\
 	LESS_TERMCAP_md=$(printf "\e[1;34m")	\
 	LESS_TERMCAP_me=$(printf "\e[0m")		\
@@ -73,6 +74,6 @@ function _monip() {
 	echo "$ip"
 }
 
-function _path() {
-	if [[ ${1:0:1} == "/" ]]; then echo "$1"; else echo "$(pwd)/$1"; fi
-}
+#function _geoip() {
+#	/usr/bin/python3 "/path/to/py-toolkit/python3/ipv4_lookup.py" $1
+#}
